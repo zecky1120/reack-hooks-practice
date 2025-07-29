@@ -12,21 +12,21 @@ function App() {
   };
   return (
     <div className="app">
-      <form onSubmit={handleSubmit}>
-        <div className="">
-          <label>
-            苗字
-            <input type="text" {...setFname}></input>
+      <form onSubmit={handleSubmit} className="form-container">
+        <div>
+          <label className="form-label">
+            <span>苗字</span>
+            <input type="text" className="form-control" {...setFname}></input>
           </label>
         </div>
-        <div className="">
-          <label>
-            名前
-            <input type="text" {...setLname}></input>
+        <div>
+          <label className="form-label">
+            <span>名前</span>
+            <input type="text" className="form-control" {...setLname}></input>
           </label>
         </div>
-        <div className="">
-          <label>
+        <div>
+          <label className="form-label">
             フルネーム
             <p>{fullName}</p>
           </label>
