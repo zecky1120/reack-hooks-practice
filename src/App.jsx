@@ -1,10 +1,10 @@
-import { useState } from "react";
 import "./App.css";
+import useCustomHook from "./hooks/useCustomHook";
 
 function App() {
-  const [fName, setFname] = useState("");
-  const [lName, setLname] = useState("");
-  const fullName = fName + lName;
+  const [fName, setFname] = useCustomHook("");
+  const [lName, setLname] = useCustomHook("");
+  const fullName = fName + " " + lName;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,21 +16,13 @@ function App() {
         <div className="">
           <label>
             苗字
-            <input
-              type="text"
-              value={fName}
-              onChange={(e) => setFname(e.target.value)}
-            ></input>
+            <input type="text" {...setFname}></input>
           </label>
         </div>
         <div className="">
           <label>
             名前
-            <input
-              type="text"
-              value={lName}
-              onChange={(e) => setLname(e.target.value)}
-            ></input>
+            <input type="text" {...setLname}></input>
           </label>
         </div>
         <div className="">
