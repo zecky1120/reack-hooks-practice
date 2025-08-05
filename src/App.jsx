@@ -1,11 +1,7 @@
 import "./App.css";
-import useCustomHook from "./hooks/useCustomHook";
+import useFullNameHook from "./hooks/useFullNameHook";
 
 function App() {
-  const [fName, setFname] = useCustomHook("");
-  const [lName, setLname] = useCustomHook("");
-  const fullName = fName + " " + lName;
-
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`あなたの名前は${fullName}です。`);
