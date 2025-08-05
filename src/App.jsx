@@ -2,6 +2,8 @@ import "./App.css";
 import useFullNameHook from "./hooks/useFullNameHook";
 
 function App() {
+  const { fullName, familyNameInputProps, lastNameInputProps } =
+    useFullNameHook();
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`あなたの名前は${fullName}です。`);
@@ -12,13 +14,21 @@ function App() {
         <div>
           <label className="form-label">
             <span>苗字</span>
-            <input type="text" className="form-control" {...setFname}></input>
+            <input
+              type="text"
+              className="form-control"
+              {...familyNameInputProps}
+            ></input>
           </label>
         </div>
         <div>
           <label className="form-label">
             <span>名前</span>
-            <input type="text" className="form-control" {...setLname}></input>
+            <input
+              type="text"
+              className="form-control"
+              {...lastNameInputProps}
+            ></input>
           </label>
         </div>
         <div>
