@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import useFullNameHook from "./hooks/useFullNameHook";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { fullName, familyNameInputProps, lastNameInputProps } =
+    useFullNameHook();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`あなたの名前は${fullName}です。`);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <form onSubmit={handleSubmit} className="form-container">
+        <div>
+          <label className="form-label">
+            <span>苗字</span>
+            <input
+              type="text"
+              className="form-control"
+              {...familyNameInputProps}
+            ></input>
+          </label>
+        </div>
+        <div>
+          <label className="form-label">
+            <span>名前</span>
+            <input
+              type="text"
+              className="form-control"
+              {...lastNameInputProps}
+            ></input>
+          </label>
+        </div>
+        <div>
+          <label className="form-label">
+            フルネーム
+            <p>{fullName}</p>
+          </label>
+        </div>
+        <button type="submit">送信</button>
+      </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
